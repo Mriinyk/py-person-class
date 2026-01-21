@@ -9,9 +9,13 @@ class Person:
 
 def create_person_list(people: list) -> list:
     result_list = []
-    for p_dict in people:
-        new_person = Person(p_dict["name"], p_dict["age"])
-        result_list.append(new_person)
+    Person.people.clear()
+
+    result_list = [
+        Person(p_dict["name"], p_dict["age"])
+        for p_dict in people
+    ]
+
     for p_dict in people:
         person_instance = Person.people[p_dict["name"]]
 
